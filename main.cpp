@@ -371,7 +371,25 @@ public:
     }
 };
 
+
+
 int main() {
+    //hello world
+//    std::cout << "Hello, World!" << std::endl;
+    //二分查找算法
+//    BinarySearch::binarySearch();
+//    binarySearch();
+    //选择排序
+//    SelectSort::main();
+    //插入排序
+//    InsertionSort::main();
+    //希尔排序
+//    ShellSort::main();
+    //归并排序
+//    MergeSort::main();
+    //快速排序
+//    QuickSort::main();
+    //堆排序
     HeapSort::main();
 
 
