@@ -370,6 +370,77 @@ public:
         show(a,size);
     }
 };
+//二叉查找树
+class BST
+{
+public:
+    class Node
+    {
+    public:
+        double key;
+        double val;
+        Node left,right;
+        int N;
+        Node() {
+
+        }
+        Node(double key, double val, int N) {
+            this->key = key;this->val = val;this->N = N;
+        }
+        bool operator == (Node x) {
+            if (this->key == x.key && this->val == x.val && this->N == x.N) return true;
+            return false;
+        }
+        bool isNull() {
+            if (this == NULL) return true;
+            return false;
+        }
+        bool operator != (Node x) {
+            if (this->key == x.key && this->val == x.val && this->N == x.N) return false;
+            return true;
+        }
+    };
+    Node root;
+    int size(Node x) {
+        if(x.isNull()) {
+            return 0;
+        }else{
+            return x.N;
+        }
+    }
+    int size() {
+        return size(root);
+    }
+    double get(double key) {
+        return get(root,key);
+    }
+    double get(Node x, double key) {
+        //在以x为跟结点的子树中查找并返回key对应的值
+        //如果找不到就返回NULL
+        if(x.isNull()) return NULL;
+        Comparable compareKey(key);
+        int cmp = compareKey.compareTo(x.key);
+        if(cmp < 0) return get(x.left,key);
+        else if(cmp > 0) return get(x.right,key);
+        else return x.val;
+    }
+    void put(double key, double val) {
+        //查找key，找到则更新它的值，否则为它创建一个新的结点
+        root = put(root,key,val);
+    }
+    Node put(Node x, double key, double val) {
+        //如果key存在于以x为根结点的自述中则更新它的值；
+        //否则将以key和val为键值对的新结点插入到该子树中
+        if(x.isNull()) return Node(key,val,1);
+        Comparable compareKey(key);
+        int cmp = compareKey.compareTo(x.key);
+        if(cmp < 0) x.left = put(x.left,key,val);
+        else if(cmp > 0) x.right = put(x.right,key,val);
+        else x.val = val;
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+};
 
 
 
