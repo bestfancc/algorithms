@@ -440,6 +440,51 @@ public:
         x.N = size(x.left) + size(x.right) + 1;
         return x;
     }
+    double min() {
+        return min(root).key;
+    }
+    Node min(Node x) {
+        if(x.left.isNull()) return x;
+        return min(x.left);
+    }
+    double floor(double key) {
+        Node x = floor(root,key);
+        if(x.isNull()) return NULL;
+        return x.key;
+    }
+    Node floor(Node x, double key) {
+        if(x.isNull()) return NULL;
+        Comparable compareKey(key);
+        int cmp = compareKey.compareTo(x.key);
+        if(cmp == 0) return NULL;
+        if(cmp < 0) return floor(x.left,key);
+        Node t = floor(x.right,key);
+        if(!t.isNull()) return t;
+        else return x;
+    }
+    double select(int k) {
+        return select(root,k).key;
+    }
+    Node select(Node x,int k) {
+        //返回排名为k的结点
+        if(x.isNull()) return NULL;
+        int t = size(x.left);
+        if(t > k) return select(x.left,k);
+        else if(t > k) return select(x.right, k-t-1);
+        else return x;
+    }
+    int rank(double key) {
+        return rank(key,root);
+    }
+    int rank(double key,Node x) {
+        //返回以x为根结点的子树中小于x.key的键的数量
+        if(x.isNull()) return 0;
+        Comparable compareKey(key);
+        int cmp = compareKey.compareTo(x.key);
+        if(cmp > 0) return rank(key, x.left);
+        else if(cmp > 0) return 1 + size(x.left) + rank(key, x.right);
+        else return size(x.left);
+    }
 };
 
 
@@ -453,7 +498,7 @@ int main() {
     //选择排序
 //    SelectSort::main();
     //插入排序
-//    InsertionSort::main();
+//    InsertionSort::main();啊速度
     //希尔排序
 //    ShellSort::main();
     //归并排序
