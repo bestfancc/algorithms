@@ -484,6 +484,7 @@ public:
         if(cmp > 0) return rank(key, x.left);
         else if(cmp > 0) return 1 + size(x.left) + rank(key, x.right);
         else return size(x.left);
+        
     }
 };
 
