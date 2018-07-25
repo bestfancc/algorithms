@@ -447,6 +447,13 @@ public:
         if(x.left.isNull()) return x;
         return min(x.left);
     }
+    double max() {
+        return max(root).key;
+    }
+    Node max(Node x) {
+        if(x.right.isNull()) return x;
+        return max(x.left);
+    }
     double floor(double key) {
         Node x = floor(root,key);
         if(x.isNull()) return NULL;
@@ -481,11 +488,47 @@ public:
         if(x.isNull()) return 0;
         Comparable compareKey(key);
         int cmp = compareKey.compareTo(x.key);
-        if(cmp > 0) return rank(key, x.left);
+        if(cmp < 0) return rank(key, x.left);
         else if(cmp > 0) return 1 + size(x.left) + rank(key, x.right);
         else return size(x.left);
-        
     }
+    void deleteMin() {
+        root = deleteMin(root);
+    }
+    Node deleteMin(Node x) {
+        if(x.left.isNull()) return x.right;
+        x.left = deleteMin(x.left);
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+    void deleteOne(double key) {
+        root = deleteOne(root, key);
+    }
+    Node deleteOne(Node x, double key) {
+        if(x.isNull()) return NULL;
+        Comparable compareKey(key);
+        int cmp = compareKey.compareTo(x.key);
+        if(cmp < 0) x.left = deleteOne(x.left, key);
+        else if(cmp < 0) x.right = deleteOne(x.right, key);
+        else{
+            if(x.right.isNull()) return x.left;
+            if(x.left.isNull()) return x.right;
+            Node t = x;
+            x = min(x.right);
+            x.right = deleteMin(t.right);
+            x.left = t.left;
+        }
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+    void print(Node x) {
+        if(x.isNull()) return;
+        print(x.left);
+        std::cout<<x.key<<endl;
+        print(x.right);
+    }
+
+
 };
 
 
