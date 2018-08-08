@@ -542,7 +542,7 @@ int main() {
     //选择排序
 //    SelectSort::main();
     //插入排序
-//    InsertionSort::main();啊速度
+//    InsertionSort::main();
     //希尔排序
 //    ShellSort::main();
     //归并排序
