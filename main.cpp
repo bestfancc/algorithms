@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <queue>
 using namespace std;
 //二分查找
 class BinarySearch
@@ -527,6 +528,26 @@ public:
         std::cout<<x.key<<endl;
         print(x.right);
     }
+    queue keys() {
+        return keys(min(), max());
+    }
+    queue keys(double lo, double hi) {
+        queue< double > queue;
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+    void keys(Node x, queue<double > queue, double lo, double hi) {
+        if(x.isNull()) return ;
+        Comparable comparableLo(lo);
+        int cmplo = comparableLo.compareTo(x.key);
+        Comparable comparableHi(hi);
+        int cmphi = comparableHi.compareTo(x.key);
+        if(cmplo < 0) keys(x.left, queue, lo, hi);
+        if(cmplo <=0 && cmphi >= 0) queue.push(x.key);
+        if(cmphi > 0) keys(x.right, queue, lo, hi);
+    }
+
+
 
 
 };
