@@ -522,12 +522,14 @@ public:
         x.N = size(x.left) + size(x.right) + 1;
         return x;
     }
+    //打印所有键
     void print(Node x) {
         if(x.isNull()) return;
         print(x.left);
         std::cout<<x.key<<endl;
         print(x.right);
     }
+    //范围查找操作
     queue keys() {
         return keys(min(), max());
     }
