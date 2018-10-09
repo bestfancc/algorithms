@@ -449,7 +449,7 @@ public:
 
             cout<<"a2"<<endl;
             Node *x = new Node(key,val,1);
-            *root = *x;
+            root = x;
             return true;
         }
         cout<<"a3"<<endl;
@@ -459,7 +459,7 @@ public:
         else if(cmp > 0) return put(x->right,key,val);
         else x->val = val;
         x->N = size(x->left) + size(x->right) + 1;
-        return *x;
+        return x;
     }
 //    double min() {
 //        return min(root).key;
@@ -596,19 +596,18 @@ int main() {
     //堆排序
 //    HeapSort::main();
     //查找
-    std::cout <<"a5"<<endl;
     BST bst;
-    bst.put(3.1, 3);
-    bst.put(2.1, 5);
-    bst.put(4.1, 2);
-//    bst.put(6.1, 4);
+//    bst.put(3.1, 3);
+//    bst.put(2.1, 5);
+//    bst.put(4.1, 2);
+    bst.put(6.1, 4);
 //    bst.put(7.1, 9);
 //    bst.put(6.1, 4);
 //    bst.put(9.1, 6);
     std::cout <<"a5"<<endl;
-//    cout <<bst.root <<endl;
-//    cout <<bst.root->key <<endl;
-//    cout <<bst.root->val <<endl;
+    cout <<bst.root <<endl;
+    cout <<bst.root->key <<endl;
+    cout <<bst.root->val <<endl;
 //    bst.print(bst.root);
 
 
