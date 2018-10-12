@@ -545,18 +545,25 @@ public:
         return queue;
     }
 
-    void keys(Node *x, queue<double > &queue, double lo, double hi) {
-        cout <<lo<<" "<<hi<<" "<<x->key<<endl;
+    void keys(Node *& x, queue<double > & queue, double lo, double hi) {
         if(x->isNull()) return;
         Comparable comparableLo(lo);
         int cmplo = comparableLo.compareTo(x->key);
         Comparable comparableHi(hi);
         int cmphi = comparableHi.compareTo(x->key);
-        if(cmplo < 0) keys(x->left, queue, lo, hi);
+        if(cmplo < 0) {
+            if(!x->left->isNull()) {
+                keys(x->left, queue, lo, hi);
+            }
+        }
         if(cmplo <=0 && cmphi >= 0) {
             queue.push(x->key);
         }
-        if(cmphi > 0) keys(x->right, queue, lo, hi);
+        if(cmphi > 0) {
+            if(!x->right->isNull()) {
+                keys(x->right, queue, lo, hi);
+            }
+        }
     }
     void print(Node *x) {
         if(x->isNull()) return;
@@ -565,6 +572,7 @@ public:
         print(x->right);
     }
 };
+//打印队列
 void print(queue<double> &s,int num)
 {
     if(!num)
@@ -624,8 +632,8 @@ int main() {
 //    std::cout <<"打印二叉树开始"<<endl;
 //    bst.print(bst.root);
 //    std::cout <<"打印二叉树结束"<<endl;
-    queue< double > queue2 = bst.keys();
-    print(queue2,5);
+    queue< double > queue = bst.keys();
+    print(queue,5);
 
 
     return 0;
