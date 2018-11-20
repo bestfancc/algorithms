@@ -1,6 +1,8 @@
-//
-// Created by Administrator on 2018/11/20.
-//
+/**
+ * User: bestfancc
+ * Email：bestfancc@gmail.com
+ * Date: 2018/11/20
+ */
 
 #ifndef SUANFA_COMPARABLE_H
 #define SUANFA_COMPARABLE_H
