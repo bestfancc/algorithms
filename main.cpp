@@ -304,8 +304,8 @@ int main() {
 //    QuickSort quickSort;
 //    quickSort.run();
     //堆排序
-//    HeapSort heapSort;
-//    heapSort.run();
+    HeapSort heapSort;
+    heapSort.run();
     /*
     //查找
     BST bst;
@@ -324,7 +324,7 @@ int main() {
     std::cout <<"二叉查找树中最小（最左边）的键为"<<bst.min()<<endl;
     std::cout <<"二叉查找树中最大（最右边）的键为"<<bst.max()<<endl;
     std::cout <<"二叉查找树中小于等于5的最大的键为"<<bst.floor(5)<<endl;
-     
+
     std::cout <<"二叉查找树中排名为3(从0开始)的键为"<<bst.select(3)<<endl;
     std::cout <<"二叉查找树中key小于7的最大值的排名（key小于7的个数）为"<<bst.rank(7)<<endl;
      */
