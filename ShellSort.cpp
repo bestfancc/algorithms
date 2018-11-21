@@ -19,7 +19,6 @@ void ShellSort::sort(double *a,int size) {
                 }
             }
         }
-        show(a,size);
         h = h/3;
     }
 }
