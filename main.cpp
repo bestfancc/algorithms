@@ -304,8 +304,8 @@ int main() {
 //    QuickSort quickSort;
 //    quickSort.run();
     //堆排序
-    HeapSort heapSort;
-    heapSort.run();
+//    HeapSort heapSort;
+//    heapSort.run();
     /*
     //查找
     BST bst;
