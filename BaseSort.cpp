@@ -14,8 +14,8 @@ bool BaseSort::isSorted(double a[],int size) {
         if(less(a[i], a[i-1])) {
             return false;
         }
-        return true;
     }
+    return true;
 }
 int BaseSort::less(double v, double w) {
     Comparable V(v);
@@ -46,13 +46,15 @@ void BaseSort::run() {
         cin>>a[i];
     }
     int size = sizeof(a)/ sizeof(a[0]);
+    cout<<"Before Sort：";
     BaseSort::show(a,size);
     sort(a,size);
     if(BaseSort::isSorted(a,size)) {
-        cout<<"Is Sorted"<<endl;
+        cout<<"Array Is Sorted"<<endl;
     } else {
-        cout<<"Not Sorted"<<endl;
+        cout<<"Array Is Not Sorted"<<endl;
     }
+    cout<<"After Sort：";
     BaseSort::show(a,size);
 }
 
