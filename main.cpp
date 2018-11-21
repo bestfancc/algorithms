@@ -12,8 +12,6 @@
 #include "Header/HeapSort.h"
 using namespace std;
 
-
-
 /**
 //优先队列
 class MaxPQ :public BaseSort
@@ -66,7 +64,8 @@ public:
         return max;
     }
 };
-
+*/
+/*
 //二叉查找树
 class BST
 {
@@ -305,7 +304,6 @@ int main() {
 //    QuickSort quickSort;
 //    quickSort.run();
     //堆排序
-//    HeapSort::main();
     HeapSort heapSort;
     heapSort.run();
     /*
