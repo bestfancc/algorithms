@@ -34,13 +34,13 @@ using namespace std;
         double a[] = {1.1,5.2,6.4,2.1,2.0,3.2,9.9,66.5,32.4};
         int size = sizeof(a)/ sizeof(a[0]);
         sort(a,a+size);
-        double key;
-        cin>>key;
-        int result = BinarySearch::binarySearchRank(key, a, size);
-        if(result < 0) {
-            cout<<"not found "<<key<<" in the array!"<<endl;
+        double value;
+        cin>>value;
+        int key = BinarySearch::binarySearchRank(value, a, size);
+        if(key < 0) {
+            cout<<"not found "<<value<<" in the array!"<<endl;
         } else{
-            cout<<"found it in array,the key is : "<<result<<" !"<<endl;
+            cout<<"found it in array,the key of "<<value<<" is : "<<key<<" !"<<endl;
         }
     }
 

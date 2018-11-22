@@ -15,32 +15,8 @@
 using namespace std;
 
 int main() {
-    //hello world
-//    std::cout << "Hello, World!" << std::endl;
-    //二分查找算法
-//    BinarySearch::binarySearch();
-//    binarySearch();
-    //选择排序
-//    SelectSort selectSort;
-//    selectSort.run();
-    //插入排序
-//    InsertionSort insertionSort;
-//    insertionSort.run();
-//    希尔排序
-//    ShellSort shellSort;
-//    shellSort.run();
-    //归并排序
-//    MergeSort mergeSort;
-//    mergeSort.run();
-    //快速排序
-//    QuickSort quickSort;
-//    quickSort.run();
-    //堆排序
-//    HeapSort heapSort;
-//    heapSort.run();
-    //查找
-//    BST::run();
-
+    //二叉查找树 查找
+    BST::run();
     return 0;
 }
 
