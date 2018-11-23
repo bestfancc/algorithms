@@ -195,6 +195,27 @@ void BST::print(BST::Node *x) {
     std::cout<<"key为"<<x->key<<"结点 N的值为"<<x->N<<" val的值为"<<x->val<<endl;
     print(x->right);
 }
+void BST::preOrderTraversal() {
+
+}
+void BST::inOrderTraversal(queue<double> &s,int num) {
+    if(!num)
+    {
+        cout << endl;
+        return;
+    }
+    double x= s.front();
+    s.pop();
+    cout << x << " ";
+    s.push(x);
+    inOrderTraversal(s,--num);
+}
+void BST::postOrderTraversal() {
+
+}
+void BST::layerTraversal() {
+
+}
 void BST::run() {
     //查找
     BST bst;
@@ -227,24 +248,7 @@ void BST::run() {
     bst.print(bst.root);
     std::cout <<"打印二叉树结束"<<endl;
     queue< double > queue = bst.keys();
-/*
-
-//打印队列
-void print(queue<double> &s,int num)
-{
-    if(!num)
-    {
-        cout << endl;
-        return;
-    }
-    double x= s.front();
-    s.pop();
-    cout << x << " ";
-    s.push(x);
-    print(s,--num);
-}
- */
-//    bst.print(queue,queue.size());  //中序遍历
+//    bst.inOrderTraversal(queue,queue.size());  //中序遍历
     //先序遍历
     //后序遍历
     //层次遍历

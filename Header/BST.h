@@ -56,6 +56,14 @@ public:
     queue <double > keys(double lo, double hi);
     void keys(Node *& x, queue<double > & queue, double lo, double hi);
     void print(Node *x);
+    //深度优先遍历 -》前序遍历
+    void preOrderTraversal();
+    //深度优先遍历 -》中序遍历
+    void inOrderTraversal(queue<double> &s,int num);
+    //深度优先遍历 -》后序遍历
+    void postOrderTraversal();
+    //广度优先遍历
+    void layerTraversal();
     static void run();
 };
 #endif //ALGORITHMS_BST_H
