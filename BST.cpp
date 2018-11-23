@@ -191,30 +191,42 @@ void BST::keys(BST::Node *& x, queue<double > & queue, double lo, double hi) {
 }
 void BST::print(BST::Node *x) {
     if(x->isNull()) return;
-    print(x->left);
+    BST::print(x->left);
     std::cout<<"key为"<<x->key<<"结点 N的值为"<<x->N<<" val的值为"<<x->val<<endl;
-    print(x->right);
+    BST::print(x->right);
 }
-void BST::preOrderTraversal() {
-
+void BST::preOrderTraversal(BST::Node *x) {
+    if(x->isNull()) return;
+    std::cout<<"key为"<<x->key<<"结点 N的值为"<<x->N<<" val的值为"<<x->val<<endl;
+    BST::preOrderTraversal(x->left);
+    BST::preOrderTraversal(x->right);
 }
-void BST::inOrderTraversal(queue<double> &s,int num) {
-    if(!num)
-    {
-        cout << endl;
-        return;
+void BST::inOrderTraversal(BST::Node *x) {
+    if(x->isNull()) return;
+    BST::inOrderTraversal(x->left);
+    std::cout<<"key为"<<x->key<<"结点 N的值为"<<x->N<<" val的值为"<<x->val<<endl;
+    BST::inOrderTraversal(x->right);
+}
+void BST::postOrderTraversal(BST::Node *x) {
+    if(x->isNull()) return;
+    BST::postOrderTraversal(x->left);
+    BST::postOrderTraversal(x->right);
+    std::cout<<"key为"<<x->key<<"结点 N的值为"<<x->N<<" val的值为"<<x->val<<endl;
+}
+void BST::layerTraversal(BST::Node *x) {
+    queue< BST::Node * > queue ;
+    queue.push(x);
+    while (!queue.empty()) {
+        BST::Node * current = queue.front();
+        queue.pop();
+        std::cout<<"key为"<<current->key<<"结点 N的值为"<<current->N<<" val的值为"<<current->val<<endl;
+        if(!current->left->isNull()) {
+            queue.push(current->left);
+        }
+        if(!current->right->isNull()) {
+            queue.push(current->right);
+        }
     }
-    double x= s.front();
-    s.pop();
-    cout << x << " ";
-    s.push(x);
-    inOrderTraversal(s,--num);
-}
-void BST::postOrderTraversal() {
-
-}
-void BST::layerTraversal() {
-
 }
 void BST::run() {
     //查找
@@ -224,6 +236,8 @@ void BST::run() {
     bst.put(1.1, 6);
     bst.put(6.1, 1);
     bst.put(7.1, 9);
+    bst.put(3.5, 10);
+    bst.put(2.9, 0);
     std::cout <<"打印二叉树开始"<<endl;
     bst.print(bst.root);
     std::cout <<"打印二叉树结束"<<endl;
@@ -237,7 +251,18 @@ void BST::run() {
 
     std::cout <<"二叉查找树中排名为3(从0开始)的键为"<<bst.select(3)<<endl;
     std::cout <<"二叉查找树中key小于7的最大值的排名（key小于7的个数）为"<<bst.rank(7)<<endl;
-
+    std::cout<<"先序遍历开始"<<endl;
+    bst.preOrderTraversal(bst.root);  //先序遍历
+    std::cout<<"先序遍历结束"<<endl;
+    std::cout<<"中序遍历开始"<<endl;
+    bst.inOrderTraversal(bst.root);  //中序遍历
+    std::cout<<"中序遍历结束"<<endl;
+    std::cout<<"后序遍历开始"<<endl;
+    bst.postOrderTraversal(bst.root);  //后序遍历
+    std::cout<<"后序遍历结束"<<endl;
+    std::cout<<"层次遍历开始"<<endl;
+    bst.layerTraversal(bst.root);  //层次遍历
+    std::cout<<"层次遍历结束"<<endl;
     cout<<"删除key最小的结点"<<endl;
     bst.deleteMin();
     std::cout <<"打印二叉树开始"<<endl;
@@ -247,9 +272,4 @@ void BST::run() {
     std::cout <<"打印二叉树开始"<<endl;
     bst.print(bst.root);
     std::cout <<"打印二叉树结束"<<endl;
-    queue< double > queue = bst.keys();
-//    bst.inOrderTraversal(queue,queue.size());  //中序遍历
-    //先序遍历
-    //后序遍历
-    //层次遍历
 }

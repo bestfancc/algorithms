@@ -57,13 +57,13 @@ public:
     void keys(Node *& x, queue<double > & queue, double lo, double hi);
     void print(Node *x);
     //深度优先遍历 -》前序遍历
-    void preOrderTraversal();
+    void preOrderTraversal(BST::Node *x);
     //深度优先遍历 -》中序遍历
-    void inOrderTraversal(queue<double> &s,int num);
+    void inOrderTraversal(BST::Node *x);
     //深度优先遍历 -》后序遍历
-    void postOrderTraversal();
+    void postOrderTraversal(BST::Node *x);
     //广度优先遍历
-    void layerTraversal();
+    void layerTraversal(BST::Node *x);
     static void run();
 };
 #endif //ALGORITHMS_BST_H
