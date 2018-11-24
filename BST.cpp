@@ -189,12 +189,6 @@ void BST::keys(BST::Node *& x, queue<double > & queue, double lo, double hi) {
         }
     }
 }
-void BST::print(BST::Node *x) {
-    if(x->isNull()) return;
-    BST::print(x->left);
-    std::cout<<"key为"<<x->key<<"结点 N的值为"<<x->N<<" val的值为"<<x->val<<endl;
-    BST::print(x->right);
-}
 void BST::preOrderTraversal(BST::Node *x) {
     if(x->isNull()) return;
     std::cout<<"key为"<<x->key<<"结点 N的值为"<<x->N<<" val的值为"<<x->val<<endl;
@@ -238,9 +232,9 @@ void BST::run() {
     bst.put(7.1, 9);
     bst.put(3.5, 10);
     bst.put(2.9, 0);
-    std::cout <<"打印二叉树开始"<<endl;
-    bst.print(bst.root);
-    std::cout <<"打印二叉树结束"<<endl;
+    std::cout <<"中序遍历二叉树开始"<<endl;
+    bst.inOrderTraversal(bst.root);
+    std::cout <<"中序遍历二叉树结束"<<endl;
     std::cout <<"测试get方法开始"<<endl;
     std::cout <<"key为1.1的结点的val为"<<bst.get(1.1)<<endl;
     std::cout <<"key为6.1的结点的val为"<<bst.get(6.1)<<endl;
@@ -265,11 +259,11 @@ void BST::run() {
     std::cout<<"层次遍历结束"<<endl;
     cout<<"删除key最小的结点"<<endl;
     bst.deleteMin();
-    std::cout <<"打印二叉树开始"<<endl;
-    bst.print(bst.root);
-    std::cout <<"打印二叉树结束"<<endl;
+    std::cout <<"中序遍历二叉树开始"<<endl;
+    bst.inOrderTraversal(bst.root);
+    std::cout <<"中序遍历二叉树结束"<<endl;
     bst.deleteOne(3.1);
-    std::cout <<"打印二叉树开始"<<endl;
-    bst.print(bst.root);
-    std::cout <<"打印二叉树结束"<<endl;
+    std::cout <<"中序遍历二叉树开始"<<endl;
+    bst.inOrderTraversal(bst.root);
+    std::cout <<"中序遍历二叉树结束"<<endl;
 }

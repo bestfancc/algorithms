@@ -55,7 +55,6 @@ public:
     queue <double > keys();
     queue <double > keys(double lo, double hi);
     void keys(Node *& x, queue<double > & queue, double lo, double hi);
-    void print(Node *x);
     //深度优先遍历 -》前序遍历
     void preOrderTraversal(BST::Node *x);
     //深度优先遍历 -》中序遍历
