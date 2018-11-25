@@ -10,10 +10,6 @@
 using namespace std;
 
     int BinarySearch::binarySearchRank(double key, double a[],int size) {
-
-        for(int i;i < size;i++) {
-            cout<<a[i]<<endl;
-        }
         int lo = 0;
         int hi = size;
         while (lo <= hi) {
@@ -23,8 +19,7 @@ using namespace std;
             }
             else if (key > a[mid]) {
                 lo = mid +1;
-            }
-            else {
+            }else{
                 return mid;
             }
         }
@@ -38,6 +33,7 @@ using namespace std;
         cin>>value;
         int key = BinarySearch::binarySearchRank(value, a, size);
         if(key < 0) {
+
             cout<<"not found "<<value<<" in the array!"<<endl;
         } else{
             cout<<"found it in array,the key of "<<value<<" is : "<<key<<" !"<<endl;

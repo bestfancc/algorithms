@@ -11,7 +11,6 @@ class BinarySearch
 {
 public:
     static int binarySearchRank(double key, double a[],int size);
-
     static void binarySearch();
 
 };
