@@ -12,8 +12,10 @@ using namespace std;
     int BinarySearch::binarySearchRank(double key, double a[],int size) {
         int lo = 0;
         int hi = size;
+        int count = 0;
         while (lo <= hi) {
-            int mid = (int)(lo + (hi - lo)/2);
+            std::cout<<"查找了"<<++count<<"次"<<endl;
+            int mid = lo + (hi - lo)/2;
             if (key < a[mid]) {
                 hi = mid - 1;
             }
@@ -29,6 +31,12 @@ using namespace std;
         double a[] = {1.1,5.2,6.4,2.1,2.0,3.2,9.9,66.5,32.4};
         int size = sizeof(a)/ sizeof(a[0]);
         sort(a,a+size);
+        std::cout<<"长度为9的double数组如下"<<endl;
+        for(int i = 0;i < size;i++) {
+            std::cout<<a[i]<<" ";
+        }
+        std::cout<<endl;
+        std::cout<<"请输入你要查找的值"<<endl;
         double value;
         cin>>value;
         int key = BinarySearch::binarySearchRank(value, a, size);
