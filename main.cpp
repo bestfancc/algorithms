@@ -15,9 +15,8 @@
 using namespace std;
 
 int main() {
-    BinarySearch::binarySearch();
     //二叉查找树 查找
-//    BST::run();
+    BST::run();
     return 0;
 }
 
