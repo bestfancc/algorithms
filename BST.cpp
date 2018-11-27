@@ -262,6 +262,7 @@ void BST::run() {
     std::cout <<"中序遍历二叉树开始"<<endl;
     bst.inOrderTraversal(bst.root);
     std::cout <<"中序遍历二叉树结束"<<endl;
+    std::cout <<"删除键为3.1的节点"<<endl;
     bst.deleteOne(3.1);
     std::cout <<"中序遍历二叉树开始"<<endl;
     bst.inOrderTraversal(bst.root);
