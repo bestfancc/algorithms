@@ -50,5 +50,6 @@ double MaxPQ::delMax() {
     return max;
 }
 void run() {
-
+    //构建一个优先队列
+    //去掉最大值
 }
