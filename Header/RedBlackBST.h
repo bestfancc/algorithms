@@ -7,6 +7,9 @@
 #define ALGORITHMS_REDBLACKBST_H
 class RedBlackBST
 {
+private:
+    static bool RED = true;
+    static bool BLACK = false;
 public:
     class Node
     {
@@ -20,9 +23,15 @@ public:
         Node();
         Node(double key, double val, int N, bool color);
         bool operator == (Node x);
-        bool isRed();
         bool isNull();
-        bool operator != (Node x);
     };
+    bool isRed(Node *h);
+    RedBlackBST::Node rotateLeft(Node h);
+    RedBlackBST::Node rotateRight(Node h);
+    void flipColors(Node h);
+    int size();
+    void put(double key, double val);
+    RedBlackBST::Node put(Node h, double key, double val);
+
 };
 #endif //ALGORITHMS_REDBLACKBST_H
