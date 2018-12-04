@@ -31,7 +31,7 @@ public:
     void flipColors(Node h);
     int size();
     void put(double key, double val);
-    
+
     RedBlackBST::Node put(Node h, double key, double val);
 
 };
