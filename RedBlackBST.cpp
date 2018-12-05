@@ -29,14 +29,26 @@ bool RedBlackBST::isRed(Node *h) {
     if (h->isNull()) return false;
     return h->color == RED;
 }
-RedBlackBST::Node RedBlackBST::rotateLeft(RedBlackBST::Node h) {
-
+RedBlackBST::Node *RedBlackBST::rotateLeft(RedBlackBST::Node *h) {
+    RedBlackBST::Node *x = h->right;
+    h->right = x->left;
+    x->left = h;
+    x->color = RED;
+    x->N = h->N;
+    h->N = 1 + h->left + size();
 }
 RedBlackBST::Node RedBlackBST::rotateRight(RedBlackBST::Node h) {
 
 }
 void RedBlackBST::flipColors(RedBlackBST::Node h) {
 
+}
+int RedBlackBST::size(RedBlackBST::Node *x) {
+    if(x->isNull()) {
+        return 0;
+    }else{
+        return x->N;
+    }
 }
 int RedBlackBST::size() {
 
@@ -46,5 +58,5 @@ void RedBlackBST::put(double key, double val) {
 }
 RedBlackBST::Node RedBlackBST::put(RedBlackBST::Node h, double key, double val) {
 
-    
+
 }

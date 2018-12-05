@@ -26,9 +26,10 @@ public:
         bool isNull();
     };
     bool isRed(Node *h);
-    RedBlackBST::Node rotateLeft(Node h);
+    RedBlackBST::Node *rotateLeft(Node *h);
     RedBlackBST::Node rotateRight(Node h);
     void flipColors(Node h);
+    int size(Node *x);
     int size();
     void put(double key, double val);
 
