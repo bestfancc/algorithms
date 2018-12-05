@@ -29,32 +29,32 @@ public:
         bool operator != (Node x);
 
     };
-    Node *root;
+    BST::Node *root;
     BST();
-    int size(Node *x);
+    int size(BST::Node *x);
     int size();
     double get(double key);
-    double get(Node *& x, double key);
+    double get(BST::Node *& x, double key);
     void put(double key, double val);
-    Node* put(Node *& x, double key, double val);
+    BST::Node* put(BST::Node *& x, double key, double val);
     double min();
-    Node*  min(Node * x);
+    BST::Node*  min(BST::Node * x);
     double max();
-    Node* max(Node *x);
+    BST::Node* max(BST::Node *x);
     double floor(double key);
-    Node* floor(Node *x, double key);
+    BST::Node* floor(BST::Node *x, double key);
     double select(int k);
-    Node* select(Node *x,int k);
+    BST::Node* select(BST::Node *x,int k);
     int rank(double key);
-    int rank(double key,Node *x);
+    int rank(double key,BST::Node *x);
     void deleteMin();
-    Node* deleteMin(Node *x);
+    BST::Node* deleteMin(BST::Node *x);
     void deleteOne(double key);
-    Node* deleteOne(Node *x, double key);
+    BST::Node* deleteOne(BST::Node *x, double key);
     //范围查找操作
     queue <double > keys();
     queue <double > keys(double lo, double hi);
-    void keys(Node *& x, queue<double > & queue, double lo, double hi);
+    void keys(BST::Node *& x, queue<double > & queue, double lo, double hi);
     //深度优先遍历 -》前序遍历
     void preOrderTraversal(BST::Node *x);
     //深度优先遍历 -》中序遍历

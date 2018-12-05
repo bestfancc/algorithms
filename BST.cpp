@@ -18,7 +18,7 @@ BST::Node::Node(double key, double val, int N) :left(NULL),right(NULL) {
     this->val = val;
     this->N = N;
 }
-bool BST::Node::operator == (Node x) {
+bool BST::Node::operator == (BST::Node x) {
     if (this->key == x.key && this->val == x.val && this->N == x.N) return true;
     return false;
 }
@@ -26,7 +26,7 @@ bool BST::Node::isNull() {
     if (this == NULL) return true;
     return false;
 }
-bool BST::Node::operator != (Node x) {
+bool BST::Node::operator != (BST::Node x) {
     if (this->key == x.key && this->val == x.val && this->N == x.N) return false;
     return true;
 }
@@ -34,7 +34,7 @@ bool BST::Node::operator != (Node x) {
 BST::BST() :root(NULL) {
 
 }
-int BST::size(Node *x) {
+int BST::size(BST::Node *x) {
     if(x->isNull()) {
         return 0;
     }else{
@@ -47,7 +47,7 @@ int BST::size() {
 double BST::get(double key) {
     return get(root,key);
 }
-double BST::get(Node *& x, double key) {
+double BST::get(BST::Node *& x, double key) {
     //在以x为跟结点的子树中查找并返回key对应的值
     //如果找不到就返回NULL
     if(x->isNull()) return 0;
@@ -80,7 +80,7 @@ BST::Node* BST::put(BST::Node *& x, double key, double val)   {
 double BST::min() {
     return min(root)->key;
 }
-BST::Node*  BST::min(Node * x) {
+BST::Node*  BST::min(BST::Node * x) {
     if(x->left->isNull()) return x;
     return min(x->left);
 }
@@ -93,24 +93,24 @@ BST::Node* BST::max(BST::Node *x) {
 }
 double BST::floor(double key) {
     //返回小于
-    Node *x = floor(root,key);
+    BST::Node *x = floor(root,key);
     if(x->isNull()) return 0;
     return x->key;
 }
-BST::Node* BST::floor(Node *x, double key) {
+BST::Node* BST::floor(BST::Node *x, double key) {
     if(x->isNull()) return NULL;
     Comparable compareKey(key);
     int cmp = compareKey.compareTo(x->key);
     if(cmp == 0) return NULL;
     if(cmp < 0) return floor(x->left,key);
-    Node *t = floor(x->right,key);
+    BST::Node *t = floor(x->right,key);
     if(!t->isNull()) return t;
     else return x;
 }
 double BST::select(int k) {
     return select(root,k)->key;
 }
-BST::Node* BST::select(Node *x,int k) {
+BST::Node* BST::select(BST::Node *x,int k) {
     //返回排名为k的结点
     if(x->isNull()) return NULL;
     int t = size(x->left);
@@ -121,7 +121,7 @@ BST::Node* BST::select(Node *x,int k) {
 int BST::rank(double key) {
     return rank(key,root);
 }
-int BST::rank(double key,Node *x) {
+int BST::rank(double key,BST::Node *x) {
     //返回以x为根结点的子树中小于x.key的键的数量
     if(x->isNull()) return 0;
     Comparable compareKey(key);
