@@ -3,9 +3,11 @@
  * Email：bestfancc@gmail.com
  * Date: 2018/11/30
  */
+#include "Comparable.h"
+
 #ifndef ALGORITHMS_REDBLACKBST_H
 #define ALGORITHMS_REDBLACKBST_H
-class RedBlackBST
+class RedBlackBST :public Comparable <double (v)>
 {
 private:
     static bool RED = true;
@@ -25,15 +27,16 @@ public:
         bool operator == (Node x);
         bool isNull();
     };
+    RedBlackBST::Node *root;
     bool isRed(Node *h);
     RedBlackBST::Node *rotateLeft(Node *h);
-    RedBlackBST::Node rotateRight(Node h);
-    void flipColors(Node h);
+    RedBlackBST::Node *rotateRight(Node *h);
+    void flipColors(Node *h);
     int size(Node *x);
     int size();
     void put(double key, double val);
 
-    RedBlackBST::Node put(Node h, double key, double val);
+    RedBlackBST::Node *put(Node *h, double key, double val);
 
 };
 #endif //ALGORITHMS_REDBLACKBST_H
