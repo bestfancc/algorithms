@@ -12,12 +12,12 @@
 #include "Header/HeapSort.h"
 #include "Header/MaxPQ.h"
 #include "Header/BST.h"
+#include "Header/RedBlackBST.h"
 using namespace std;
 
 int main() {
-    //二叉查找树 查找
-
-    BST::run();
+    //红黑树
+    RedBlackBST::run();
     return 0;
 }
 

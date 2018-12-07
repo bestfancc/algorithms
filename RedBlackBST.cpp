@@ -83,3 +83,6 @@ RedBlackBST::Node *RedBlackBST::put(RedBlackBST::Node *h, double key, double val
     h->N = size(h->left) + size(h->right) + 1;
     return h;
 }
+void static RedBlackBST::run() {
+
+}

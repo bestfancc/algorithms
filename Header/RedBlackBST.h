@@ -7,7 +7,7 @@
 
 #ifndef ALGORITHMS_REDBLACKBST_H
 #define ALGORITHMS_REDBLACKBST_H
-class RedBlackBST :public Comparable <double (v)>
+class RedBlackBST
 {
 private:
     static bool RED = true;
@@ -35,8 +35,8 @@ public:
     int size(Node *x);
     int size();
     void put(double key, double val);
-
     RedBlackBST::Node *put(Node *h, double key, double val);
+    void static run();
 
 };
 #endif //ALGORITHMS_REDBLACKBST_H
