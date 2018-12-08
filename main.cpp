@@ -18,6 +18,8 @@ using namespace std;
 int main() {
     //红黑树
     RedBlackBST::run();
+
+    
     return 0;
 }
 
