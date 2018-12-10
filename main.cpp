@@ -20,7 +20,8 @@ int main() {
     RedBlackBST::run();
 
 
-    
+
+
     return 0;
 }
 
